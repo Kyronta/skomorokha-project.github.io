@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mariia Skomorokha – Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Geologica Thin:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Geologica Thin', sans-serif;
+      background: linear-gradient(180deg, #fff 0%, #ffe6f0 100%);
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #6ce1c2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 30px;
+      border-bottom: 2px solid black;
+    }
+
+    .navbar-logo {
+      font-size: 20px;
+    }
+
+    .navbar-name {
+      font-weight: bold;
+      font-style: italic;
+      flex-grow: 1;
+      margin-left: 10px;
+    }
+
+    .navbar-links a {
+      font-weight: bold;
+      margin-left: 20px;
+    }
+
+    /* Hero / Header */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background-image: url("922.png");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 100px;
+    }
+
+    .hero::before {
+      content: '✦';
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      font-size: 48px;
+      color: #e0e0e0;
+    }
+
+    .hero::after {
+      content: '✦';
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      font-size: 48px;
+      color: #e0e0e0;
+    }
+
+    .hero-content {
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-content h1 {
+      font-size: 4em;
+      margin: 0;
+    }
+
+    .hero-content p {
+      font-size: 1.5em;
+      margin-top: 10px;
+    }
+
+    /* About */
+    .about {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .about img {
+      width: 150px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .about p {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    /* Work */
+    .work {
+      background: linear-gradient(135deg, #c1f0e2, #a2e0d6);
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .work h2 {
+      font-size: 2.5em;
+      margin-bottom: 30px;
+    }
+
+    .experience-item {
+      background: white;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    /* Gallery */
+    .gallery {
+      padding: 100px 20px;
+      background: linear-gradient(180deg, #fff 0%, #ffe6f0 100%);
+      position: relative;
+    }
+
+    .gallery h2 {
+      text-align: center;
+      font-size: 2.8em;
+      margin-bottom: 60px;
+      color: #111;
+    }
+
+    .gallery-layout {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery-left {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .gallery-left img {
+      width: 100%;
+      max-width: 1000px;
+      height: auto;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border-radius: 14px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+   }
+
+    .gallery-right {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 20px;
+      min-width: 300px;
+    }
+
+    .gallery-right img {
+      width: 100%;
+      max-width: 240px;
+      height: auto;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-right img:hover {
+      transform: scale(1.04);
+    }
+
+    .gallery::before,
+    .gallery::after {
+      content: '✦';
+      position: absolute;
+      font-size: 48px;
+      color: #e0e0e0;
+      font-weight: bold;
+    }
+
+    .gallery::before {
+      top: 30px;
+      left: 30px;
+      transform: rotate(-15deg);
+    }
+
+    .gallery::after {
+      bottom: 30px;
+      right: 30px;
+      transform: rotate(20deg);
+    }
+
+    /* Contact */
+    .contact {
+      padding: 60px 20px;
+      background: linear-gradient(180deg, #fff, #fbd6eb);
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 2.5em;
+    }
+
+    .contact h2 em {
+      color: #cc1c88;
+    }
+
+    .contact form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact input, .contact textarea {
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1em;
+    }
+
+    .contact button {
+      background-color: #e91e63;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1em;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 20px;
+      background-color: #f9f9f9;
+      text-align: center;
+    }
+
+    footer a {
+      margin: 0 10px;
+      color: #111;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      .gallery-layout {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .gallery-right {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .gallery-right {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-logo">✦</div>
+    <div class="navbar-name">MARIIA SKOMOROKHA</div>
+    <div class="navbar-links">
+      <a href="#about">ABOUT</a>
+      <a href="#work">WORK</a>
+      <a href="#gallery">GALLERY</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Mariia Skomorokha</h1>
+      <p>Artist & Designer</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <img src="me.png" alt="Mariia's Portrait">
+    <p>Hello! I'm Mariia, a multidisciplinary artist and designer<br>based in Ukraine.</p>
+  </section>
+
+  <!-- WORK -->
+  <section class="work" id="work">
+    <h2>WORK EXPERIENCE</h2>
+    <div class="experience-item">
+      <h3>Character Designer – Freelance</h3>
+      <p>Created unique characters for games, animation and multimedia.</p>
+    </div>
+    <div class="experience-item">
+      <h3>Graphic & Motion Designer</h3>
+      <p>Turnarounds, expressions, costumes and motion assets for projects.</p>
+    </div>
+    <div class="experience-item">
+      <h3>Memorial Designer</h3>
+      <p>Developed respectful visuals and storytelling in memorial art.</p>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery">
+    <h2>GALLERY</h2>
+    <div class="gallery-layout">
+      <div class="gallery-left">
+        <img src="925.png" alt="Big red image">
+      </div>
+      <div class="gallery-right">
+        <img src="928.png" alt="Image 2">
+        <img src="927.png" alt="Image 3">
+        <img src="926.png" alt="Image 4">
+        <img src="929.png" alt="Image 5">
+        <img src="924.png" alt="Image 6">
+        <img src="923.png" alt="Image 7">
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <h2>GET IN <em>TOUCH</em></h2>
+    <form>
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">SUBMIT</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      <a href="#">Instagram</a> | 
+      <a href="#">TikTok</a> | 
+      <a href="#">ArtStation</a>
+    </p>
+  </footer>
+
+</body>
+</html>
